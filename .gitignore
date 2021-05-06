@@ -217,3 +217,8 @@ sketch
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/django,macos,react,visualstudiocode
+
+
+# self added
+
+frontend/static/frontend
