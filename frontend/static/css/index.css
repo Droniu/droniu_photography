@@ -1,0 +1,15 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    
+}
+
+#main {
+    width: 100%;
+    left: 0;
+}
+
+#app {
+    display: flex;
+    width: 100%;
+}
