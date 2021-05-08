@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
 import { Header} from './Header.js';
-import PropagateLoader from "react-spinners/PropagateLoader";
+import { Content } from './Content.js';
 import './App.css';
 
 const slides = [
@@ -57,6 +57,7 @@ function App() {
                 <Header large={false} />
 
         }
+        <Content />
     </div>
     );
 }

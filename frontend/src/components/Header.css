@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
     height: 100%;
-    transition: height 1s;
     background-color: #1a1a1a;
 }
 #cont img {

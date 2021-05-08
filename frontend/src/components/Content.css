@@ -1,0 +1,11 @@
+#videoDiv {
+    overflow: hidden;
+    width: 100%;
+    min-height: 0%;
+}
+
+#video {
+    overflow: hidden;
+    object-fit: fill;
+    width: 100%;
+}

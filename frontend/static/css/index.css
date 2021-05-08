@@ -12,7 +12,10 @@ html, body {
     font-family: Montserrat-ExtraLight;
     src: url("fonts/Montserrat-ExtraLight.ttf");
 } */
-html, body {
+html {
+    height: 200%;
+}
+body {
     margin: 0;
     padding: 0;
     height: 100%;
