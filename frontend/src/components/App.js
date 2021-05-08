@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
-
+import { Header} from './Header.js';
+import PropagateLoader from "react-spinners/PropagateLoader";
+import './App.css';
 
 const slides = [
     {
@@ -31,14 +33,30 @@ const slideReducer = (state, event) => {
 }
 
 function App() {
+    const [loading, setLoading] = useState(false);
+    
+    // 3s timeout for loading screen
+    useEffect(() => {
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+            
+        }, 3000)
+    }, []);
+    
+    if (loading) {
+        
+    }
+
     return (
-    <div>
-        <h1>Hello World</h1>
-        {slides.map(slide => {
-            <div className="slide">{slide.title}</div>
-        })}
-        <button>Previous</button>
-        <button>Next</button>
+    <div id="mainContainer">
+        {
+            loading ?
+                <Header large={true} />
+            :
+                <Header large={false} />
+
+        }
     </div>
     );
 }

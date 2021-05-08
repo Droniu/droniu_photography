@@ -4,12 +4,31 @@ html, body {
     
 }
 
+/* @font-face {
+    font-family: Montserrat-Bold;
+    src: url("fonts/Montserrat-Bold.ttf");
+}
+@font-face {
+    font-family: Montserrat-ExtraLight;
+    src: url("fonts/Montserrat-ExtraLight.ttf");
+} */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #e2e2e2;
+    background-color: #1a1a1a;
+    /* font-family: 'Montserrat-ExtraLight'; */
+}
 #main {
     width: 100%;
+    height: 100%;
     left: 0;
 }
 
 #app {
     display: flex;
+    flex-direction: column;
     width: 100%;
+    height: 100%;
 }

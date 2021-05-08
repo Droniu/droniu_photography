@@ -1,0 +1,13 @@
+#cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transition: height 1s;
+    background-color: #1a1a1a;
+}
+#cont img {
+    height: 14rem;
+    max-width: 25%;
+}
