@@ -1,12 +1,26 @@
-#cont {
+.headerPre {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 100vh;
     background-color: #1a1a1a;
+}
+.headerAfter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    height: 10vh;
+    background-color: #1a1a1a;
+    transition: height 1s;
+}
+.navItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: display 1s;
 }
 #cont img {
     height: 14rem;
-    max-width: 25%;
 }
