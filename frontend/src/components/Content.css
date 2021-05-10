@@ -1,14 +1,6 @@
-#videoDiv {
-    overflow: hidden;
-    width: 100%;
-    min-height: 0%;
-}
-
-#video {
-    overflow: hidden;
-    object-fit: fill;
-    width: 100%;
-}
-img {
-    max-width: 100%;
+#contentDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

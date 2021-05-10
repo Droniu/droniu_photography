@@ -22,10 +22,55 @@ const slides = [
     }
 ]
 
+const initialState = {
+    slideIndex: 0
+}
+
+const slideReducer = (state, event) => {
+    var len = slides.length;
+    
+    if (event.type === "NEXT") 
+        return {
+            ...state,
+            slideIndex: (((state.slideIndex + 1) % len ) + len ) % len
+        }
+    if (event.type === "PREV") 
+        return {
+            ...state,
+            slideIndex: state.slideIndex === 0 
+                ? len - 1 
+                : state.slideIndex - 1
+        }
+}
+
+function Tilt() {
+    
+}
+
+function Slide({ slide, offset }) {
+    return <div className="slide" style={{
+            '--offset': offset
+            }}>{slide.title} {offset}</div>
+}
+
 export function Content() {
+    
+    const [state, dispatch] = React.useReducer(slideReducer, initialState);
+
     return (
-        <div id="videoDiv">
-            <img src="./static/images/photos/1.jpg" />
+        <div id="contentDiv">
+            <h1>{state.slideIndex}</h1>
+            {
+                slides.map( (slide, i) => {
+                    return <Slide slide={slide} offset = {state.slideIndex - i}/>
+                })
+            }
+            <button onClick={() => {
+                dispatch({type: 'PREV'})
+            }}>Previous</button>
+            <button onClick={() => {
+                dispatch({type: 'NEXT'})
+            }}>Next</button>
         </div>
         
         );
