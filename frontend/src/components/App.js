@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { render } from "react-dom";
 import { Header} from './Header.js';
 import { Content } from './Content.js';
-import './App.css';
+import './App.scss';
 
 const slides = [
     {

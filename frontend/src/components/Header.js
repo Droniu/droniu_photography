@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropagateLoader from "react-spinners/PropagateLoader";
-import './Header.css';
+import './Header.scss';
 import { CSSTransition } from 'react-transition-group';
 
 

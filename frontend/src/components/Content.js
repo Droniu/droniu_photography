@@ -1,5 +1,5 @@
 import React from "react";
-import './Content.css';
+import './Content.scss';
 
 const slides = [
     {
@@ -59,7 +59,6 @@ export function Content() {
 
     return (
         <div id="contentDiv">
-            <h1>{state.slideIndex}</h1>
             {
                 slides.map( (slide, i) => {
                     return <Slide slide={slide} offset = {state.slideIndex - i}/>
