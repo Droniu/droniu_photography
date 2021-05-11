@@ -55,14 +55,56 @@ const slideReducer = (state, event) => {
         }
 }
 
-function Tilt() {
+function Tilt(active) {
+    const ref = React.useRef(null);
+
+    React.useEffect(() => {
+        if (!ref.current) { return ;}
     
+
+        const state = {
+            rect: ref.current.getBoundingClientRect(),
+            mouseX: undefined,
+            mouseY: undefined
+
+        };
+
+        const resizeObserver = new ResizeObserver(entries => {
+            state.rect = ref.current.getBoundingClientRect()
+        });
+
+        let element = ref.current;
+
+        const handleMouseMove = e => {
+            if (!element) { return; }
+            state.mouseX = e.clientX;
+            state.mouseY = e.clientY;
+            const px = (state.mouseX - state.rect.left) / state.rect.width;
+            const py = (state.mouseY - state.rect.top ) / state.rect.height;
+            console.log(state.rect.top, py)
+            element.style.setProperty('--px', px);
+            element.style.setProperty('--py', py);
+        };
+
+        ref.current.addEventListener('mousemove', handleMouseMove);
+        resizeObserver.observe(ref.current);
+
+
+
+        return () => {
+            resizeObserver.unobserve(element);
+            element.removeEventListener('mousemove', handleMouse)
+        }
+    }, []);
+
+    return ref;
 }
 
 function Slide({ slide, offset }) {
-    const ref = Tilt()
-    const active = offset === 0 ? true : null;
     
+    const active = offset === 0 ? true : null;
+    const ref = Tilt(active)
+
     return <div 
                 ref={active ? ref : null}
                 className="slide"
@@ -86,7 +128,10 @@ export function Content() {
                 {
                     [...slides, ...slides, ...slides].map( (slide, i) => {
                         let offset = slides.length + (state.slideIndex - i);
-                        return <Slide slide={slide} offset = {offset}/>
+                        return <Slide 
+                            slide={slide} 
+                            offset = {offset}
+                            key={i}/>
                     })
                 }
                 <button onClick={() => {

@@ -23,7 +23,7 @@
     background-size: cover;
     background-position: center center;
 
-    --x: calc(var(--px) - 0.5);
+
 
     transform: 
         translateX(calc(100%*var(--offset)))
@@ -33,4 +33,17 @@
 }
 .slide[data-active] {
     border-color: red;
+    --x: calc(var(--px) - 0.5);
+    --y: calc(var(--py) - 0.5);
+    
+    &:hover{
+        transition-duration: 0.05s;
+        transform:
+            rotateY(calc(var(--x) * 45deg))
+            rotateX(calc(var(--y) * (-45deg)))
+        ;
+                   
+    }
+
+    
 }
