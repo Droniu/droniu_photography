@@ -1,4 +1,5 @@
 .slideSection {
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,17 +10,25 @@
     > .slide {
         grid-area: 1 / -1;
     }
+    
+    perspective: 800px;
+    transform-style: preserve-3d;
+
 }
 
 .slide {
-    width: 30vw;
-    height: 40vw;
+    width: 20vw;
+    height: 30vw;
     border: 1px dotted white;
     background-size: cover;
     background-position: center center;
 
+    --x: calc(var(--px) - 0.5);
+
     transform: 
-        translateX(calc(100%*var(--offset)));
+        translateX(calc(100%*var(--offset)))
+        rotateY(calc(-25deg*var(--dir)));
+    transition: transform 0.5s ease-in-out;
 
 }
 .slide[data-active] {

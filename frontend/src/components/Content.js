@@ -64,11 +64,12 @@ function Slide({ slide, offset }) {
     const active = offset === 0 ? true : null;
     
     return <div 
+                ref={active ? ref : null}
                 className="slide"
                 data-active={active}
                 style={{
                     '--offset': offset,
-                    '--dir': offset > 0 ? 1 : -1,
+                    '--dir': offset === 0 ? 0 : (offset > 0 ? 1 : -1),
                     backgroundImage: `url('${slide.img}')`
             }}>
                 {slide.title} {offset}
