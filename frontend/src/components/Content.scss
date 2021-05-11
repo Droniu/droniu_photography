@@ -1,12 +1,27 @@
-#contentDiv {
+.slideSection {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+}
+
+.slideGrid {
+    display: grid;
+    > .slide {
+        grid-area: 1 / -1;
+    }
 }
 
 .slide {
     width: 30vw;
     height: 40vw;
-    outline: 1px dotted white;
+    border: 1px dotted white;
+    background-size: cover;
+    background-position: center center;
+
+    transform: 
+        translateX(calc(100%*var(--offset)));
+
+}
+.slide[data-active] {
+    border-color: red;
 }

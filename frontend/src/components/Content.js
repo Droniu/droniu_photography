@@ -6,20 +6,32 @@ const slides = [
         title: 'Person A',
         subtitle: 'A',
         desc: 'Nobody likes A.',
-        img: './photos/1.jpg'
+        img: './static/images/photos/1.jpg'
     },
     {
         title: 'Person J',
         subtitle: 'J',
         desc: 'Some people like J.',
-        img: './photos/2.jpg'
+        img: './static/images/photos/2.jpg'
     },
     {
         title: 'Person T',
         subtitle: 'T',
         desc: 'Everyone loves T.',
-        img: './photos/3.jpg'
-    }
+        img: './static/images/photos/3.jpg'
+    },
+    {
+        title: 'Person K',
+        subtitle: 'K',
+        desc: 'Lol it is the K',
+        img: './static/images/photos/4.jpg'
+    },
+    {
+        title: 'Person L',
+        subtitle: 'L',
+        desc: 'Unbelievable',
+        img: './static/images/photos/5.jpg'
+    },
 ]
 
 const initialState = {
@@ -48,9 +60,19 @@ function Tilt() {
 }
 
 function Slide({ slide, offset }) {
-    return <div className="slide" style={{
-            '--offset': offset
-            }}>{slide.title} {offset}</div>
+    const ref = Tilt()
+    const active = offset === 0 ? true : null;
+    
+    return <div 
+                className="slide"
+                data-active={active}
+                style={{
+                    '--offset': offset,
+                    '--dir': offset > 0 ? 1 : -1,
+                    backgroundImage: `url('${slide.img}')`
+            }}>
+                {slide.title} {offset}
+            </div>
 }
 
 export function Content() {
@@ -58,18 +80,21 @@ export function Content() {
     const [state, dispatch] = React.useReducer(slideReducer, initialState);
 
     return (
-        <div id="contentDiv">
-            {
-                slides.map( (slide, i) => {
-                    return <Slide slide={slide} offset = {state.slideIndex - i}/>
-                })
-            }
-            <button onClick={() => {
-                dispatch({type: 'PREV'})
-            }}>Previous</button>
-            <button onClick={() => {
-                dispatch({type: 'NEXT'})
-            }}>Next</button>
+       <div className="slideSection">   
+       <div className="slideGrid">
+                {
+                    [...slides, ...slides, ...slides].map( (slide, i) => {
+                        let offset = slides.length + (state.slideIndex - i);
+                        return <Slide slide={slide} offset = {offset}/>
+                    })
+                }
+                <button onClick={() => {
+                    dispatch({type: 'PREV'})
+                }}>Previous</button>
+                <button onClick={() => {
+                    dispatch({type: 'NEXT'})
+                }}>Next</button>
+            </div>
         </div>
         
         );
