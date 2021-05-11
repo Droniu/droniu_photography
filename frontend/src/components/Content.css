@@ -4,3 +4,9 @@
     align-items: center;
     justify-content: center;
 }
+
+.slide {
+    width: 30vw;
+    height: 40vw;
+    outline: 1px dotted white;
+}

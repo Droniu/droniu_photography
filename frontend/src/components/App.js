@@ -41,7 +41,7 @@ function App() {
         setTimeout(() => {
             setLoading(false)
             
-        }, 500)
+        }, 2000)
     }, []);
     
     if (loading) {
