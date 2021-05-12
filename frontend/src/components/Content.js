@@ -3,33 +3,33 @@ import './Content.scss';
 
 const slides = [
     {
-        title: 'Person A',
-        subtitle: 'A',
-        desc: 'Nobody likes A.',
+        title: 'Artistic',
+        subtitle: 'Portraits',
+        desc: 'Memorable photos in a preferred setting.',
         img: './static/images/photos/1.jpg'
     },
     {
-        title: 'Person J',
-        subtitle: 'J',
-        desc: 'Some people like J.',
+        title: 'Business',
+        subtitle: 'Potraits',
+        desc: 'CV, branding and personal images',
         img: './static/images/photos/2.jpg'
     },
     {
-        title: 'Person T',
-        subtitle: 'T',
-        desc: 'Everyone loves T.',
+        title: 'Festivals',
+        subtitle: 'Events',
+        desc: 'Photorelation of huge events, during night & day',
         img: './static/images/photos/3.jpg'
     },
     {
-        title: 'Person K',
-        subtitle: 'K',
-        desc: 'Lol it is the K',
+        title: 'Weddings',
+        subtitle: 'Events',
+        desc: 'The day worth remembering',
         img: './static/images/photos/4.jpg'
     },
     {
-        title: 'Person L',
-        subtitle: 'L',
-        desc: 'Unbelievable',
+        title: 'Banquets',
+        subtitle: 'Events',
+        desc: 'Any other occasions',
         img: './static/images/photos/5.jpg'
     },
 ]
@@ -62,7 +62,6 @@ function Tilt(active) {
     React.useEffect(() => {
         if (!ref.current || !active) { return ;}
 
-        console.log(ref.current)
         //if (!active) {return ;}
 
         const state = {
@@ -100,7 +99,7 @@ function Tilt(active) {
     return ref;
 }
 
-function Slide({ slide, offset }) {
+function Slide({ slide, offset, onClick }) {
     
     const active = offset === 0 ? true : null;
     const ref = Tilt(active)
@@ -109,14 +108,16 @@ function Slide({ slide, offset }) {
                 ref={ref}
                 className="slide"
                 data-active={active}
+                onClick={onClick}
                 style={{
                     '--offset': offset,
                     '--dir': offset === 0 ? 0 : (offset > 0 ? 1 : -1),
                     backgroundImage: `url('${slide.img}')`
-            }}>
-                <h2>{slide.title}</h2>
-                <h3>{slide.slideIndex}</h3>
-                <p>{slide.desc}</p>
+            }}><div className="sContent">
+                    <h2 className="sTitle">{slide.title}</h2>
+            </div>
+
+
             </div>
 }
 
@@ -133,15 +134,18 @@ export function Content() {
                         return <Slide 
                             slide={slide} 
                             offset = {offset}
-                            key={i}/>
+                            key={i}
+                            onClick={() => { 
+                                if (!(offset === 0)) {
+                                    offset > 0 
+                                    ? dispatch({type: 'PREV'})
+                                    : dispatch({type: 'NEXT'});
+                                }
+                                
+                            }}
+                            />
                     })
                 }
-                <button onClick={() => {
-                    dispatch({type: 'PREV'})
-                }}>Previous</button>
-                <button onClick={() => {
-                    dispatch({type: 'NEXT'})
-                }}>Next</button>
             </div>
         </div>
         

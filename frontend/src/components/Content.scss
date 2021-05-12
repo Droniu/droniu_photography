@@ -18,17 +18,16 @@
     
     perspective: 800px;
     transform-style: preserve-3d;
+    transition: transform 0.5s linear
 
 }
 
 .slide {
-    flex-direction: column;
     width: 20vw;
     height: 30vw;
-    border: 1px dotted white;
     background-size: cover;
     background-position: center center;
-
+    opacity: 0.3;
 
 
     transform: 
@@ -36,20 +35,45 @@
         rotateY(calc(-25deg*var(--dir)));
     transition: transform 0.5s ease-in-out;
 
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 3rem;
+    justify-content: flex-end;
+    transform-style: preserve-3d;
 }
+
+.sContent {
+    transform-style: preserve-3d;
+    transform: translateZ(3rem);
+    transition: opacity 0.3s linear;
+    opacity: 0;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
 .slide[data-active] {
-    border-color: red;
+    opacity: 1;
+    z-index: 2;
     --x: calc(var(--px) - 0.5);
     --y: calc(var(--py) - 0.5);
     
+    .sContent {
+        opacity: 1;
+    }
+
     &:hover{
-        transition-duration: 0.05s;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+
         transform:
             rotateY(calc(var(--x) * 45deg))
             rotateX(calc(var(--y) * (-45deg)))
         ;
+        
+
+        
                    
     }
 
     
 }
+
