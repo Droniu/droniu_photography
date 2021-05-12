@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+    position: relative;
+}
+
 .slideSection {
     height: 90vh;
     display: flex;
@@ -17,6 +22,7 @@
 }
 
 .slide {
+    flex-direction: column;
     width: 20vw;
     height: 30vw;
     border: 1px dotted white;

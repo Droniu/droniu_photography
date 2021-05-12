@@ -35,12 +35,13 @@ const slides = [
 ]
 
 const initialState = {
-    slideIndex: 0
+    slideIndex: 3
 }
 
 const slideReducer = (state, event) => {
     var len = slides.length;
     
+
     if (event.type === "NEXT") 
         return {
             ...state,
@@ -59,24 +60,25 @@ function Tilt(active) {
     const ref = React.useRef(null);
 
     React.useEffect(() => {
-        if (!ref.current) { return ;}
-    
+        if (!ref.current || !active) { return ;}
+
+        console.log(ref.current)
+        //if (!active) {return ;}
 
         const state = {
-            rect: ref.current.getBoundingClientRect(),
+            rect: undefined,
             mouseX: undefined,
             mouseY: undefined
 
         };
 
-        const resizeObserver = new ResizeObserver(entries => {
-            state.rect = ref.current.getBoundingClientRect()
-        });
-
         let element = ref.current;
 
         const handleMouseMove = e => {
             if (!element) { return; }
+            if (!state.rect) {
+                state.rect = element.getBoundingClientRect();
+            }
             state.mouseX = e.clientX;
             state.mouseY = e.clientY;
             const px = (state.mouseX - state.rect.left) / state.rect.width;
@@ -86,16 +88,14 @@ function Tilt(active) {
             element.style.setProperty('--py', py);
         };
 
-        ref.current.addEventListener('mousemove', handleMouseMove);
-        resizeObserver.observe(ref.current);
+        element.addEventListener('mousemove', handleMouseMove);
 
 
 
         return () => {
-            resizeObserver.unobserve(element);
-            element.removeEventListener('mousemove', handleMouse)
+            element.removeEventListener('mousemove', handleMouseMove)
         }
-    }, []);
+    });
 
     return ref;
 }
@@ -106,7 +106,7 @@ function Slide({ slide, offset }) {
     const ref = Tilt(active)
 
     return <div 
-                ref={active ? ref : null}
+                ref={ref}
                 className="slide"
                 data-active={active}
                 style={{
@@ -114,7 +114,9 @@ function Slide({ slide, offset }) {
                     '--dir': offset === 0 ? 0 : (offset > 0 ? 1 : -1),
                     backgroundImage: `url('${slide.img}')`
             }}>
-                {slide.title} {offset}
+                <h2>{slide.title}</h2>
+                <h3>{slide.slideIndex}</h3>
+                <p>{slide.desc}</p>
             </div>
 }
 
