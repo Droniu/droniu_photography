@@ -223,5 +223,5 @@ sketch
 
 frontend/static/frontend
 frontend/static/images/photos
-
+static/
 settings.py
