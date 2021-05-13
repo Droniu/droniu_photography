@@ -224,4 +224,4 @@ sketch
 frontend/static/frontend
 frontend/static/images/photos
 
-droinu_photography/settings.py
+settings.py
