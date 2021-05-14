@@ -12,12 +12,20 @@ html, body {
     font-family: Montserrat-ExtraLight;
     src: url("fonts/Montserrat-ExtraLight.ttf");
 } */
+* {
+    box-sizing: border-box;
+    position: relative;
+}
+
+html, body {
+    width: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
     color: #e2e2e2;
     background-color: #1a1a1a;
-    /* font-family: 'Montserrat-ExtraLight'; */
 }
 #main {
     width: 100%;
