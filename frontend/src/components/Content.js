@@ -82,7 +82,7 @@ function Tilt(active) {
             state.mouseY = e.clientY;
             const px = (state.mouseX - state.rect.left) / state.rect.width;
             const py = (state.mouseY - state.rect.top ) / state.rect.height;
-            console.log(state.rect.top, py)
+            //console.log(state.rect.top, py)
             element.style.setProperty('--px', px);
             element.style.setProperty('--py', py);
         };
