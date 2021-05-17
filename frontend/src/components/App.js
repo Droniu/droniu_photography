@@ -25,9 +25,9 @@ function App() {
     <div id="mainContainer">
         {
             loading ?
-                <Header large={true} />
+                <Header large={true} chosenTab={1} />
             :
-                <Header large={false} />
+                <Header large={false} chosenTab={1} />
 
         }
         <Content />

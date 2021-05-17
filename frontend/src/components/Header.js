@@ -8,6 +8,21 @@ export function Header(props) {
     
     const large = props.large
     const [loadingState, setLoading] = useState(true) 
+    const [chosenTab, setTab] = useState(props.chosenTab) 
+
+    var tabs = [
+        {
+            // logo div - index 0
+            text: "",
+        },
+        {
+            text: "Portraits",
+        },
+        {
+            text: "Events",
+        }
+    ]
+
 
     return (
     <>
@@ -18,23 +33,33 @@ export function Header(props) {
     onEntered= {() => {
         setLoading(false)
     }}>
-        <div>
+        <div
+        className="headerStatic"
+        style={{
+            "": 2
+        }}
+        >
         {
-            large ?
+            large ? null :
             <>
-                <div className="navItem"> 
-                <img src="./static/images/full_e2e2e2.svg"/>
-                </div>
-                
-            </>
-            :
-            <>
-                <div className="navItem">Events</div>
+                {/* <div className="navItem"></div>
                 <div className="navItem">Portraits</div>
-                <div className="navItem">                
-                <img src="./static/images/full_e2e2e2.svg"/></div>
+                <div className="navItem">Events</div>
                 <div className="navItem">Services</div>
-                <div className="navItem">Contact</div>
+                <div className="navItem">Contact</div> */}
+                {
+                [...tabs].map((tab, i) => {
+                    return <div 
+                        className={i === chosenTab
+                            ? "navItem selectedNavItem"
+                            : "navItem"}
+                        key={i}>
+                            {i === 0
+                            ? <img src="./static/images/full_e2e2e2.svg"/>
+                            : tab.text}
+                        </div>
+                })
+            }
             </>
 
         }
