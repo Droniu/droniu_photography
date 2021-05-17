@@ -82,7 +82,7 @@ function Tilt(active) {
             state.mouseY = e.clientY;
             const px = (state.mouseX - state.rect.left) / state.rect.width;
             const py = (state.mouseY - state.rect.top ) / state.rect.height;
-            //console.log(state.rect.top, py)
+            //cons  ole.log(state.rect.top, py)
             element.style.setProperty('--px', px);
             element.style.setProperty('--py', py);
         };
@@ -125,28 +125,38 @@ export function Content() {
     
     const [state, dispatch] = React.useReducer(slideReducer, initialState);
 
+    // const bgInput = React.useRef(`url('${slides[3].img}')`)
+
     return (
-       <div className="slideSection">   
+       
+       <div className="slideSection"
+       /*ref={bgInput}*/>  
        <div className="slideGrid">
-                {
-                    [...slides, ...slides, ...slides].map( (slide, i) => {
-                        let offset = slides.length + (state.slideIndex - i);
-                        return <Slide 
-                            slide={slide} 
-                            offset = {offset}
-                            key={i}
-                            onClick={() => { 
-                                if (!(offset === 0)) {
-                                    offset > 0 
-                                    ? dispatch({type: 'PREV'})
-                                    : dispatch({type: 'NEXT'});
-                                }
-                                
-                            }}
-                            />
-                    })
-                }
-            </div>
+            <button onClick={() => dispatch({ type: "NEXT" })}>‹</button>
+            {
+                [...slides, ...slides, ...slides].map( (slide, i) => {
+                    let offset = slides.length + (state.slideIndex - i);
+                    // if (offset === 0) {
+                    //     bgInput.current.style.setProperty(backgroundImage, 
+                    //         `url('${slide.img}')`);
+                    // }
+                    return <Slide 
+                        slide={slide} 
+                        offset = {offset}
+                        key={i}
+                        onClick={() => { 
+                            if (!(offset === 0)) {
+                                offset > 0 
+                                ? dispatch({type: 'PREV'})
+                                : dispatch({type: 'NEXT'});
+                            }
+                            
+                        }}
+                        />
+                })
+            }
+            <button onClick={() => dispatch({ type: "PREV" })}>›</button>
+        </div>
         </div>
         
         );

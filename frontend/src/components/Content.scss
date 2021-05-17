@@ -1,5 +1,6 @@
 .slideSection {
     height: 90vh;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,6 +10,30 @@
     display: grid;
     > .slide {
         grid-area: 1 / -1;
+    }
+
+    > button {
+        background: transparent;
+        color: white;
+        position: absolute;
+        outline: none;
+        border: none;
+        opacity: 0.7;
+
+        height: 100%;
+        width: 100%;
+        font-size: 5rem;
+        &:last-child {
+            right: -100%;
+        }
+        &:first-child {
+            left: -100%;
+          }
+        &:hover{
+            opacity: 1;
+        }
+        transform-style: preserve-3d;
+        transform: translateZ(10rem);
     }
     
     perspective: 800px;
@@ -22,9 +47,10 @@
     height: 30vw;
     background-size: cover;
     background-position: center center;
+    background-repeat: no-repeat;
     opacity: 0.3;
 
-
+    transform-style: preserve-3d;
     transform: 
         translateX(calc(100%*var(--offset)))
         rotateY(calc(-25deg*var(--dir)));
@@ -34,7 +60,9 @@
     flex-direction: column;
     padding-bottom: 3rem;
     justify-content: flex-end;
-    transform-style: preserve-3d;
+
+    
+
 }
 
 .sContent {
