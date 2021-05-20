@@ -3,8 +3,6 @@
 cd frontend
 npm run build
 cd ..
-source env/bin/activate
 ./manage.py collectstatic
-deactivate
 sudo systemctl restart nginx gunicorn
 
