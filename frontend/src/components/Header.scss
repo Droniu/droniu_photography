@@ -50,6 +50,8 @@ div {
     padding: 1rem;
     border-bottom: 3px solid transparent;
     
+    transition: all 0.15s linear;
+
     img {
         max-height: 10vh;
     }

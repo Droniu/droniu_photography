@@ -53,7 +53,9 @@ export function Header(props) {
                         className={i === chosenTab
                             ? "navItem selectedNavItem"
                             : "navItem"}
-                        key={i}>
+                        key={i}
+                        onClick={() => setTab(i)}
+                        >
                             {i === 0
                             ? <img src="./static/images/full_e2e2e2.svg"/>
                             : tab.text}
