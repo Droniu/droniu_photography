@@ -6,7 +6,7 @@ div {
 .headerStatic {
     transition: all 1s;
     align-items: stretch;
-    background-color: #1a1a1a;
+    background-color: transparent;
 }
 
  /* HEADER ANIMATIONS */
@@ -48,6 +48,7 @@ div {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    border-bottom: 3px solid transparent;
     
     img {
         max-height: 10vh;

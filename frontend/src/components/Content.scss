@@ -7,6 +7,7 @@
     background-position: center center;
     background-size: cover;
     transition: background-image 0.5s linear;
+
     &::before{
         content: '';
         position: absolute;
