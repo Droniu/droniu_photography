@@ -62,8 +62,6 @@ function Tilt(active) {
     React.useEffect(() => {
         if (!ref.current || !active) { return ;}
 
-        //if (!active) {return ;}
-
         const state = {
             rect: undefined,
             mouseX: undefined,
@@ -82,7 +80,7 @@ function Tilt(active) {
             state.mouseY = e.clientY;
             const px = (state.mouseX - state.rect.left) / state.rect.width;
             const py = (state.mouseY - state.rect.top ) / state.rect.height;
-            //cons  ole.log(state.rect.top, py)
+            //console.log(state.rect.top, py)
             element.style.setProperty('--px', px);
             element.style.setProperty('--py', py);
         };
@@ -121,25 +119,31 @@ function Slide({ slide, offset, onClick }) {
             </div>
 }
 
-export function Content() {
+export function Content(props) {
     
     const [state, dispatch] = React.useReducer(slideReducer, initialState);
-
-    // const bgInput = React.useRef(`url('${slides[3].img}')`)
-
+    const ref = React.useRef(null)
+    let bg = undefined
+    React.useEffect(() => {
+        console.log(ref.current)
+        console.log(bg)
+        ref.current.style.setProperty('background-image', bg)
+    }, [state])  
+    
+    
     return (
        
        <div className="slideSection"
-       /*ref={bgInput}*/>  
+       style={{backgroundImage: bg}}
+       ref={ref}>  
        <div className="slideGrid">
             <button onClick={() => dispatch({ type: "NEXT" })}>‹</button>
             {
                 [...slides, ...slides, ...slides].map( (slide, i) => {
                     let offset = slides.length + (state.slideIndex - i);
-                    // if (offset === 0) {
-                    //     bgInput.current.style.setProperty(backgroundImage, 
-                    //         `url('${slide.img}')`);
-                    // }
+                    if (offset === 0) {
+                        bg = (`url('${slide.img}')`);
+                    }
                     return <Slide 
                         slide={slide} 
                         offset = {offset}
