@@ -1,4 +1,4 @@
-# [droniu.pl](https://droniu.pl)
+# [droniu.pl](http://droniu.pl)
 
 Droniu Photography is my portfolio website for showcasing my photos.
 
