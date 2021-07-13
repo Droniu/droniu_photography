@@ -129,7 +129,7 @@ export function Content(props) {
         console.log(bg)
         ref.current.style.setProperty('background-image', bg)
     }, [state])  
-    
+
     
     return (
        

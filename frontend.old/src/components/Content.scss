@@ -83,8 +83,11 @@
 
 .sContent {
     transform-style: preserve-3d;
-    transform: translateZ(3rem);
+    transform:
+        translateZ(3rem);
     transition: opacity 0.3s linear;
+    // font-size: 1.5rem;
+    // text-transform: uppercase;
     opacity: 0;
     user-select: none;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
