@@ -9,17 +9,33 @@ export function Sidebar() {
     return ( 
         <div className="sidebar">
             <div className="logoContainer">
+                <a href="https://droniu.pl">
                 <img id="logo" src={logo} alt=""></img>
+                </a>
             </div>
             <div className="textContainer">
-                {/* text */}
                 <span>Droniu Photography</span>
             </div>
             <div className="socialContainer">
-                <img src={fb} alt="fb"></img>
-                <img src={ig} alt="fb"></img>
-                <img src={mail} alt="fb"></img>
-                {/* socials */}
+                <a href="https://www.facebook.com/droniuphoto/"
+                target="_blank"
+                rel="noreferrer">
+                    <img src={fb} 
+                        alt="Facebook">
+                    </img>
+                </a>
+                <a href="https://www.instagram.com/droniu/"
+                target="_blank"
+                rel="noreferrer">
+                <img src={ig} 
+                    alt="Instagram">
+
+                </img>
+                </a>
+                <img src={mail} 
+                    alt="Contact me">
+                    {/* Change content to contact page */}
+                </img>
             </div>
         </div>
     )
