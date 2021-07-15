@@ -1,9 +1,14 @@
 import React from 'react';
+import { Sidebar } from './components/Sidebar';
+import './App.scss'
 
 function App() {
   return (
     <div className="App">
-      Test
+      <Sidebar />
+      <div>
+
+      </div>
     </div>
   );
 }
