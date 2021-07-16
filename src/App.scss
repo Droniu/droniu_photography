@@ -3,7 +3,22 @@ div {
 }
 .App {
   height: 100%;
+  width: 100%;
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
+  background: url(./pattern.png) 0% 0% repeat;
+  background-size: 3%;
+  animation-name: MOVE-BG;
+  animation-duration: 20000s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes MOVE-BG {
+  from {
+    background-position: 0% 100%
+  }
+  to { 
+    background-position: 40000% -40000%
+  }
 }

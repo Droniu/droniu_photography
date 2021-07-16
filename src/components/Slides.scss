@@ -1,0 +1,26 @@
+@import '../shared.scss';
+
+.container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:95%;
+    overflow-y: scroll;
+    background-color:transparent;
+    color: $blight;
+}
+
+.vspace {
+    height: 10%;
+}
+.wait {
+    font-size: 2rem;
+    color: $blight;
+}
+.slide {
+    color: $blight;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+}

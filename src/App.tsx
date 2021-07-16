@@ -1,14 +1,13 @@
 import React from 'react';
 import { Sidebar } from './components/Sidebar';
+import { Slides } from './components/Slides';
 import './App.scss'
 
 function App() {
   return (
     <div className="App">
       <Sidebar />
-      <div>
-
-      </div>
+      <Slides />
     </div>
   );
 }
