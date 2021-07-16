@@ -7,17 +7,18 @@ Website uses Droniu Photography REST API, which is my default backend for storin
 ## To-do list:
 
 ### First:
-* Slides
-* Sidebar
-* Social icons
-* Logo div
-* Text & animations
-* Api fetch loader
+- [ ] Slides
+- [ ] Scrollable div
+- [x] Sidebar
+- [x] Social icons
+- [x] Logo div
+- [ ] Text & animations
+- [ ] Api fetch loader
 
 ### Then:
-* 'Back' arrow/button
-* Contact Page
-* Galleries
+- [ ] 'Back' arrow/button
+- [ ] Contact Page
+- [ ] Galleries
 
 ### Finally:
-* Manage catalogs / admin ui
+- [ ] Manage catalogs / admin ui
