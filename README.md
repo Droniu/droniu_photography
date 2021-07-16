@@ -8,12 +8,12 @@ Website uses Droniu Photography REST API, which is my default backend for storin
 
 ### First:
 - [ ] Slides
-- [ ] Scrollable div
+- [x] Scrollable div
 - [x] Sidebar
 - [x] Social icons
 - [x] Logo div
 - [ ] Text & animations
-- [ ] Api fetch loader
+- [x] Api fetch loader
 
 ### Then:
 - [ ] 'Back' arrow/button
