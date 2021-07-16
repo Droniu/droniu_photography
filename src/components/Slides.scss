@@ -2,9 +2,8 @@
 
 .container {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width:95%;
+    height: auto;
     overflow-y: scroll;
     background-color:transparent;
     color: $blight;
@@ -18,9 +17,8 @@
     color: $blight;
 }
 .slide {
+    justify-content: center;
     color: $blight;
     width: 100%;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center top;
+    height: 100%;
 }

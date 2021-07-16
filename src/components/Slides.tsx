@@ -50,13 +50,15 @@ export function Slides() {
         )
       } else {
         return (
-            //<div className="container">{JSON.stringify(slides)}</div>
-            <div 
-            className="slide"
-            style={{
-                backgroundImage: `url(${slides[0].cover})`
-            }}>
-        </div>
+            <div className="container">
+            {
+              slides.map(slide => {
+                return <div className="slide">
+                    <img src={slide.cover} alt={slide.title}></img>
+                  </div>
+              })
+            }
+            </div>
         )
       }
 }

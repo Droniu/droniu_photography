@@ -7,7 +7,7 @@ Website uses Droniu Photography REST API, which is my default backend for storin
 ## To-do list:
 
 ### First:
-- [ ] Slides
+- [~] Slides
 - [x] Scrollable div
 - [x] Sidebar
 - [x] Social icons
