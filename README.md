@@ -14,11 +14,15 @@ Website uses Droniu Photography REST API, which is my default backend for storin
 - [x] Logo div
 - [ ] Text & animations
 - [x] Api fetch loader
+- [ ] Prompt arrow (scroll)
+ 
 
 ### Then:
 - [ ] 'Back' arrow/button
 - [ ] Contact Page
 - [ ] Galleries
+- [ ] Prompt gallery
 
 ### Finally:
 - [ ] Manage catalogs / admin ui
+- [ ] Mobile improvements - vertical photos 
