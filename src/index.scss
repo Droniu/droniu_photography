@@ -1,5 +1,10 @@
 @import './shared.scss';
 
+@font-face {
+  font-family: "spartanMb";
+  src: url(spartan-mb.bold.woff2);
+}
+
 html, body {
   height: 100%;
 }
@@ -7,6 +12,7 @@ html, body {
 #root {
   height: 100%;
 }
+
 
 body {
   background-color: $bdark;

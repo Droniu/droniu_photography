@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import './Slides.scss';
-import { RingLoader } from 'react-spinners';
+import { PropagateLoader } from 'react-spinners';
 
 interface Slide {
     id: string,
@@ -42,8 +42,8 @@ export function Slides() {
         )
       } else if (!isLoaded) {
         return (
-            <div className="container">
-                <RingLoader color="white"/>
+            <div className="waitContainer">
+                <PropagateLoader color="white"/>
                 <div className="vspace"></div>
                 <span className="wait">Loading...</span>
             </div>
@@ -53,9 +53,13 @@ export function Slides() {
             <div className="container">
             {
               slides.map(slide => {
-                return <div className="slide">
+                return <><div className="slide">
                     <img src={slide.cover} alt={slide.title}></img>
+                    <span className="title">{slide.title}</span>
+                    <span className="subtitle">{slide.subtitle}</span>
                   </div>
+
+                  </>
               })
             }
             </div>
