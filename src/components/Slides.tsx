@@ -50,13 +50,14 @@ export function Slides() {
         )
       } else {
         return (
-            <div className="container">
+            <div className="slideContainer">
             {
               slides.map(slide => {
                 return <><div className="slide">
                     <img src={slide.cover} alt={slide.title}></img>
+                    
+                    <span className="subtitle"><a href={"https://instagram.com/"+slide.subtitle}>{"@"+slide.subtitle}</a></span>
                     <span className="title">{slide.title}</span>
-                    <span className="subtitle">{slide.subtitle}</span>
                   </div>
 
                   </>
