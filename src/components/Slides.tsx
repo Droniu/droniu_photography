@@ -7,15 +7,31 @@ interface Slide {
     cover: string,
     title: string,
     subtitle?: string,
-
 }
 
+
+// export const Gallery = (uuid: string) => {
+//     const []
+//
+// }
+
+const Slide = (slide: Slide) => <>
+  <div className="slide">
+    <img src={slide.cover} alt={slide.title}></img>
+    <span className="subtitle">
+      <a href={"https://instagram.com/"+slide.subtitle}>
+        {"@"+slide.subtitle}
+      </a>
+    </span>
+    <span className="title">{slide.title}</span>
+  </div></>
 
 export function Slides() {
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [slides, setSlides] = useState<Slide[]>([]);
+
 
     useEffect(() => {
         fetch("https://api.droniu.pl/catalogs")
@@ -37,7 +53,7 @@ export function Slides() {
         
         return (
             <div className="container">
-                Error: {(error as any).message}
+                {/*(error as any).message*/}
             </div>
         )
       } else if (!isLoaded) {
@@ -52,15 +68,8 @@ export function Slides() {
         return (
             <div className="slideContainer">
             {
-              slides.map(slide => {
-                return <><div className="slide">
-                    <img src={slide.cover} alt={slide.title}></img>
-                    
-                    <span className="subtitle"><a href={"https://instagram.com/"+slide.subtitle}>{"@"+slide.subtitle}</a></span>
-                    <span className="title">{slide.title}</span>
-                  </div>
-
-                  </>
+              slides.map((slide: Slide) => {
+                return <Slide {...slide}/>
               })
             }
             </div>
