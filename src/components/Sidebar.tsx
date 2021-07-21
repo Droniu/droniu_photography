@@ -22,7 +22,7 @@ export const Sidebar = ({pageMethod, pageState}: PageProps) => {
     return ( 
         <div className="sidebar">
             <div className="logoContainer">
-                <a href="https://droniu.pl">
+                <a href="/">
                 <img id="logo" src={logo} alt=""></img>
                 </a>
             </div>
