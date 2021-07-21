@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import './Slides.scss';
 import { PropagateLoader } from 'react-spinners';
 import {Section, PageProps} from '../types'
+import {Contact} from './Contact'
 
 interface Slide {
     id: string,
@@ -71,7 +72,7 @@ export const Slides = ({pageMethod, pageState}: PageProps) => {
       } else if (0) {
         return <></>// <Gallery /> element
       } else if (pageState.section == Section.Contact) {
-        return <>haha działa!</>// <Contact /> element
+        return <Contact pageMethod={pageMethod} pageState={pageState}/>// <Contact /> element
       } else {
         return (
             <div className="slideContainer">

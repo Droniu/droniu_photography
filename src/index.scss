@@ -5,6 +5,10 @@
   src: url(spartan-mb.bold.woff2);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
 }
