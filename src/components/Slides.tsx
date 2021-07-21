@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import './Slides.scss';
 import { PropagateLoader } from 'react-spinners';
+import {Section, PageProps} from '../types'
 
 interface Slide {
     id: string,
@@ -26,11 +27,13 @@ const Slide = (slide: Slide) => <>
     <span className="title">{slide.title}</span>
   </div></>
 
-export function Slides() {
+export const Slides = ({pageMethod, pageState}: PageProps) => {
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [slides, setSlides] = useState<Slide[]>([]);
+    const [contact, setContact] = useState(false);
+    const [gallery, setGallery] = useState()
 
 
     useEffect(() => {
@@ -53,6 +56,7 @@ export function Slides() {
         
         return (
             <div className="container">
+                Please use different browser!
                 {/*(error as any).message*/}
             </div>
         )
@@ -64,13 +68,15 @@ export function Slides() {
                 <span className="wait">Loading...</span>
             </div>
         )
+      } else if (0) {
+        return <></>// <Gallery /> element
+      } else if (pageState.section == Section.Contact) {
+        return <>haha działa!</>// <Contact /> element
       } else {
         return (
             <div className="slideContainer">
             {
-              slides.map((slide: Slide) => {
-                return <Slide {...slide}/>
-              })
+              slides.map((slide: Slide) => <Slide {...slide}/>)
             }
             </div>
         )

@@ -1,6 +1,11 @@
 @import '../shared.scss';
 
 
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
 .slideContainer {
     display: flex;
     flex-direction: column;
@@ -42,38 +47,38 @@
     > img {
         height:100vh;
     }
+    > span {
+        user-select: none;
+        position: absolute;
+        z-index: 1;
+        margin: 1%;
+        font-family: "spartanMb";
+    }
 
 
 }
 
 
 .title {
-    position: absolute;
     left: 41%;
     top: 77%;
-    margin: 1%;
-    font-family: "spartanMb";
+
     font-size: 7vh;
     font-weight: bold;
-    z-index: 1;
+
     text-shadow: -5px 5px 0px rgba(26, 26, 26, 0.8)
 }
 .subtitle {
-    position: absolute;
     left: 41%;
     top: 72%;
-    margin: 1%;
-    font-family: "spartanMb";
+
     font-size: 3vh;
+
     background: linear-gradient(180deg,rgba(56, 72, 180, 0) 50%, rgba(26, 26, 26, 0.8) 50%);
     background-size: 200% 100%;
     background-position-x: 100%;
-    z-index: 1;
 }
-a {
-    color: inherit;
-    text-decoration: inherit;
-}
+
 
 @media (max-width: 1000px) {
     .subtitle {
