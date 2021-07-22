@@ -4,7 +4,7 @@ import logo from '../logo.svg';
 import fb from '../fb_logo.svg';
 import ig from '../ig_logo.svg';
 import mail from '../mail_logo.svg';
-import {Section, PageProps} from '../types'
+import {Section, PageProps} from '../lib/types'
 
 
 export const Sidebar = ({pageMethod, pageState}: PageProps) => {

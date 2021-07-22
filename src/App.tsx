@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { Slides } from './components/Slides';
 import './App.scss'
-import {Section, PageState} from './types'
+import {Section, PageState} from './lib/types'
 
 
 function App() {
