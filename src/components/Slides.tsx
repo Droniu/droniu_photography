@@ -76,6 +76,7 @@ export const Slides = ({pageMethod, pageState}: PageProps) => {
       } else {
         return (
             <div className="slideContainer">
+            <div className="promptArrow arrowBounce">ˬ</div>
             {
               slides.map((slide: Slide) => <Slide {...slide}/>)
             }
