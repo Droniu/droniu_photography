@@ -11,12 +11,6 @@ interface Slide {
     subtitle?: string,
 }
 
-
-// export const Gallery = (uuid: string) => {
-//     const []
-//
-// }
-
 const Slide = (slide: Slide) => <>
   <div className="slide">
     <img src={slide.cover} alt={slide.title}></img>
@@ -29,6 +23,7 @@ const Slide = (slide: Slide) => <>
   </div></>
 
 export const Slides = ({pageMethod, pageState}: PageProps) => {
+
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
