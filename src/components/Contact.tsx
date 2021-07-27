@@ -1,26 +1,43 @@
-import React, { useEffect, useState } from 'react';
 import {Section, PageProps} from '../lib/types'
 import 'react-toastify/dist/ReactToastify.css';
 import './Contact.scss'
+import { useForm } from '../lib/useForm';
 import { toast, ToastContainer } from 'react-toastify';
-import { eventNames } from 'process';
 
-
-interface InputField {
-    name: string,
-    email: string,
-    message: string
-}
 
 export const Contact = ({pageMethod, pageState}: PageProps) => {    
 
-const [inputField, setInputField] = useState<InputField>()
-
-    const handleSubmit = (e: any) => {
+    const submitMessage = async () => {
+      const rawResponse = await fetch('https://api.droniu.pl/contact/', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      if (rawResponse.status == 201) {
+        toast.success('📧 Message sent!')
+      } else if (rawResponse.status == 403) {
+        toast.warning('🥺 Please use a different browser!')
+      }
+      else {
+        toast.error('😢 An error ocurred!')
+      }
 
     }
-    
-    const notify = () => toast.success(' ✉️ Message sent!');
+  
+    const {data, handleChange, handleSubmit, errors} = useForm({
+      initialValues: {
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+      },
+      onSubmit: submitMessage
+    })
+  
+
     return <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="form-inner">
@@ -28,38 +45,38 @@ const [inputField, setInputField] = useState<InputField>()
             <input 
             type="text" 
             placeholder="Name"
-            onChange={handleSubmit}
-            value={inputField?.name}
+            onChange={handleChange('name')}
+            value={data.name}
             required/>
             <input
             type="email"
             placeholder="Email"
-            onChange={handleSubmit} 
-            value={inputField?.email}
+            onChange={handleChange('email')} 
+            value={data.email || ''}
             required/>
             {/* Anti-spam field */}
                 <input type="text"
                 placeholder="Phone"
-                onChange={handleSubmit}
+                onChange={handleChange('phone')}
+                value={data.phone || ''}
                 className="phone"
                 name="phone"
                 tabIndex={-1}
                 autoComplete="off"/>
             <textarea 
             placeholder="Message..."
-            onChange={handleSubmit}
-            value={inputField?.message}
+            onChange={handleChange('message')}
+            value={data.message || ''}
             rows={10}
             required/>
             <button 
-            onClick={notify} 
             type="submit" 
             className="submit">Submit</button>
         </div>
       </form>
       <ToastContainer 
-        position="bottom-center"
-        autoClose={5000}
+        position="bottom-right"
+        autoClose={50000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick

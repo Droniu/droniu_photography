@@ -73,11 +73,25 @@ button:hover {
     }
 }
 
-.Toastify__toast-container {
-    align-items: center;
+// .Toastify__toast-container {
+//     // align-items: flex-end;
+//     // justify-content: center;
+//     // user-select: none;
+//     // width: inherit;
+// }
+.Toastify__toast-container--bottom-right {
+    position: fixed;
+    right: 2rem;
+    left: revert;
     justify-content: center;
-    user-select: none;
+    align-items: center;
 }
-.Toastify__toast-container--bottom-center {
-    left: 52.5%;
+// .Toastify__toast-container--bottom-center {
+//     left: 52.5%;
+//     transform: translateX(-47.5%);
+// }
+
+.Toastify {
+    width: 80%;
+    position: relative;
 }
