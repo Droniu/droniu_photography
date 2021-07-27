@@ -18,8 +18,11 @@ export const useForm = <T extends Record<keyof T, any> = {}>(options?: {
   const [data, setData] = useState<T>((options?.initialValues || {}) as T)
   const [errors, setErrors] = useState<ErrorRecord<T>>({});
 
-  const handleChange = (key: keyof T) => (e: ChangeEvent<HTMLInputElement & HTMLSelectElement>) => {
-    const value = e.target.value
+  const handleChange = <S extends unknown>(
+    key: keyof T,
+    sanitizeFn?: (value: string) => S
+  ) => (e: ChangeEvent<HTMLInputElement & HTMLSelectElement & HTMLTextAreaElement>) => {
+    const value = sanitizeFn ? sanitizeFn(e.target.value) : e.target.value
     setData({
       ...data,
       [key]: value,
