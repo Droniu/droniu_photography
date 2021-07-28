@@ -4,6 +4,12 @@ import './Contact.scss'
 import { useForm } from '../lib/useForm';
 import { toast, ToastContainer } from 'react-toastify';
 
+const emptyForm = {
+  name: '',
+  email: '',
+  phone: '',
+  message: '',
+}
 
 export const Contact = ({pageMethod, pageState}: PageProps) => {    
 
@@ -18,6 +24,8 @@ export const Contact = ({pageMethod, pageState}: PageProps) => {
       });
       if (rawResponse.status == 201) {
         toast.success('📧 Message sent!')
+        setData(emptyForm)
+
       } else if (rawResponse.status == 403) {
         toast.warning('🥺 Please use a different browser!')
       }
@@ -27,13 +35,8 @@ export const Contact = ({pageMethod, pageState}: PageProps) => {
 
     }
   
-    const {data, handleChange, handleSubmit, errors} = useForm({
-      initialValues: {
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-      },
+    const {data, setData, handleChange, handleSubmit, errors} = useForm({
+      initialValues: emptyForm,
       onSubmit: submitMessage
     })
   
@@ -76,7 +79,7 @@ export const Contact = ({pageMethod, pageState}: PageProps) => {
       </form>
       <ToastContainer 
         position="bottom-right"
-        autoClose={50000}
+        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
