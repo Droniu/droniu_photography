@@ -21,10 +21,14 @@ form {
     position: relative;
     width: 80%;
     border-radius: 30px;
-    border: 1px solid white
+    border: 2px solid white
 }
 input, textarea { 
     outline: none;
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 5px $blight
 }
 
 .form-inner {
@@ -40,7 +44,7 @@ input, textarea {
         margin-bottom: 10px;
         border-radius: 20px;
         background: $bdark;
-        border: 1px dotted white;
+        border: 1px solid grey;
         color: $blight;
     }
     textarea {
