@@ -12,15 +12,16 @@ Website uses Droniu Photography REST API, which is my default backend for storin
 - [x] Sidebar
 - [x] Social icons
 - [x] Logo div
-- [ ] Text & animations
+- [x] Text
+- [ ] Animations on scroll
 - [x] Api fetch loader
-- [ ] Prompt arrow (scroll)
+- [x] Prompt arrow
  
 
 ### Then:
-- [ ] 'Back' arrow/button
-- [ ] Contact Page
+- [x] Contact Page
 - [ ] Galleries
+- [ ] 'Back' arrow/button
 - [ ] Prompt gallery
 
 ### Finally:
