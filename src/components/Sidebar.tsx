@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './Sidebar.scss';
-import logo from '../logo.svg';
-import fb from '../fb_logo.svg';
-import ig from '../ig_logo.svg';
-import mail from '../mail_logo.svg';
+import logo from '../assets/logo.svg';
+import fb from '../assets/fb_logo.svg';
+import ig from '../assets/ig_logo.svg';
+import mail from '../assets/mail_logo.svg';
 import {Section, PageProps} from '../lib/types'
 
 
