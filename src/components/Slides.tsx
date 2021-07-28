@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import { useState, useEffect, UIEvent } from 'react';
 import './Slides.scss';
 import { PropagateLoader } from 'react-spinners';
 import {Section, PageProps} from '../lib/types'
@@ -10,6 +10,8 @@ interface Slide {
     title: string,
     subtitle?: string,
 }
+
+
 
 const Slide = (slide: Slide) => <>
   <div className="slide">
@@ -24,13 +26,17 @@ const Slide = (slide: Slide) => <>
 
 export const Slides = ({pageMethod, pageState}: PageProps) => {
 
-
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const [slides, setSlides] = useState<Slide[]>([]);
-    const [contact, setContact] = useState(false);
-    const [gallery, setGallery] = useState()
 
+    const onScroll = (e: UIEvent) => {
+      setScrolled(true);
+    }
+
+
+    // fetch catalogs from backend
 
     useEffect(() => {
         fetch("https://api.droniu.pl/catalogs")
@@ -70,8 +76,12 @@ export const Slides = ({pageMethod, pageState}: PageProps) => {
         return <Contact pageMethod={pageMethod} pageState={pageState}/>
       } else {
         return (
-            <div className="slideContainer">
-            <div className="promptArrow arrowBounce">ˬ</div>
+            <div onScroll={onScroll} 
+            className="slideContainer">
+            <div className="promptArrow arrowBounce"
+            style={{
+              display: scrolled ? "none" : "flex"
+            }}>ˬ</div>
             {
               slides.map((slide: Slide) => <Slide {...slide}/>)
             }
