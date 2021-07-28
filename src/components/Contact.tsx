@@ -11,6 +11,8 @@ const emptyForm = {
   message: '',
 }
 
+// in the future there might be a back arrow so I'm giving pageprops anyway
+
 export const Contact = ({pageMethod, pageState}: PageProps) => {    
 
     const submitMessage = async () => {
@@ -22,15 +24,18 @@ export const Contact = ({pageMethod, pageState}: PageProps) => {
         },
         body: JSON.stringify(data)
       });
-      if (rawResponse.status == 201) {
+      if (rawResponse.status === 201) {
         toast.success('📧 Message sent!')
         setData(emptyForm)
 
-      } else if (rawResponse.status == 403) {
+      } else if (rawResponse.status === 403) {
+        // phone (anti-spam field) was filled in. this shouldn't happen
+        // for users, only for bots
         toast.warning('🥺 Please use a different browser!')
       }
       else {
         toast.error('😢 An error ocurred!')
+        //console.log(errors) // disable in production
       }
 
     }

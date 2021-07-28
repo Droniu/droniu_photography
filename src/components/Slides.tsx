@@ -4,16 +4,14 @@ import { PropagateLoader } from 'react-spinners';
 import {Section, PageProps} from '../lib/types'
 import {Contact} from './Contact'
 
-interface Slide {
+interface SlideProps {
     id: string,
     cover: string,
     title: string,
     subtitle?: string,
 }
 
-
-
-const Slide = (slide: Slide) => <>
+const Slide = (slide: SlideProps) => <>
   <div className="slide">
     <img src={slide.cover} alt={slide.title}></img>
     <span className="subtitle">
@@ -29,12 +27,11 @@ export const Slides = ({pageMethod, pageState}: PageProps) => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [slides, setSlides] = useState<Slide[]>([]);
+    const [slides, setSlides] = useState<SlideProps[]>([]);
 
     const onScroll = (e: UIEvent) => {
       setScrolled(true);
     }
-
 
     // fetch catalogs from backend
 
@@ -72,7 +69,7 @@ export const Slides = ({pageMethod, pageState}: PageProps) => {
         )
       } else if (0) {
         return <></>// <Gallery /> element
-      } else if (pageState.section == Section.Contact) {
+      } else if (pageState.section === Section.Contact) {
         return <Contact pageMethod={pageMethod} pageState={pageState}/>
       } else {
         return (
@@ -83,7 +80,7 @@ export const Slides = ({pageMethod, pageState}: PageProps) => {
               display: scrolled ? "none" : "flex"
             }}>ˬ</div>
             {
-              slides.map((slide: Slide) => <Slide {...slide}/>)
+              slides.map((slide: SlideProps) => <Slide key={slide.id} {...slide}/>)
             }
             </div>
         )

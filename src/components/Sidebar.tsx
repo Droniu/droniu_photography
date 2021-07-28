@@ -15,7 +15,6 @@ export const Sidebar = ({pageMethod, pageState}: PageProps) => {
             pageMethod({section: Section.Contact})
             setClicked(false)
         }
-        console.log(pageState)
     }, [isClicked, pageMethod])
 
 
