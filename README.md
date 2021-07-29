@@ -21,11 +21,11 @@ At the moment it is also possible to send messages to me directly from the websi
 - [x] Social icons
 - [x] Logo div
 - [x] Title & subtitle
-- [ ] Text fade in on scroll
+- [ ] Text fade in on scroll 
 - [x] Api fetch loader
 - [x] Prompt arrow
 - [x] Contact Page
-- [ ] Galleries
+- [ ] Galleries (currently working on that)
 - [ ] 'Back' arrow/button
 - [ ] Prompt gallery
 - [ ] Mobile improvements - vertical photos / centering
