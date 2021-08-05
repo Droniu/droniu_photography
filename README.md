@@ -29,6 +29,7 @@ At the moment it is also possible to send messages to me directly from the websi
 - [ ] 'Back' arrow/button
 - [ ] Prompt gallery
 - [ ] Mobile improvements - vertical photos / centering
+- [x] Actually adding good photos to the API
 
 ## License
 
