@@ -21,7 +21,7 @@ At the moment it is also possible to send messages to me directly from the websi
 - [x] Social icons
 - [x] Logo div
 - [x] Title & subtitle
-- [ ] Text fade in on scroll 
+- [ ] Text fade in on scroll (this gives me a headache)
 - [x] Api fetch loader
 - [x] Prompt arrow
 - [x] Contact Page
