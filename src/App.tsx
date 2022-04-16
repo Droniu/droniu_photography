@@ -1,22 +1,13 @@
-import React, { useState } from 'react';
-import { Sidebar } from './components/Sidebar';
-import { Slides } from './components/Slides';
-import './App.scss'
-import {Section, PageState} from './lib/types'
-
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
-  
-  const initialPage: PageState = {
-    section: Section.Main
-  }
-  const [page, setPage] = useState<PageState>(initialPage)
-  
   return (
     <div className="App">
-
-      <Sidebar pageMethod={setPage} pageState={page}/>
-      <Slides pageMethod={setPage} pageState={page}/>
+      <div className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+      </div>
     </div>
   );
 }
