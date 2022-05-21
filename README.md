@@ -1,4 +1,4 @@
-# [droniu.pl](http://droniu.pl)
+# droniu_photography
 
 Droniu Photography is my webfolio for showcasing my portrait / event photos. Made using create-react-app.
 
